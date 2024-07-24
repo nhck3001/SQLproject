@@ -1,0 +1,88 @@
+CREATE TABLE OrderItem (
+    order_id INTEGER NOT NULL,
+    product_id INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    PRIMARY KEY order_id
+);
+CREATE TABLE Order (
+    order_id INTEGER NOT NULL,
+    customer_id INTEGER NOT NULL,
+    creditcard_id INTEGER NOT NULL,
+    order_date TIMESTAMP NOT NULL,
+    status varchar(255) NOT NULL,
+    PRIMARY KEY order_id
+);
+CREATE TABLE Product (
+    product_id INTEGER NOT NULL,
+    categrory varchar(255) NOT NULL,
+    description varchar(255) NOT NULL,
+    brand varchar(255) NOT NULL,
+    size varchar(255) NOT NULL,
+    PRIMARY KEY product_id
+);
+CREATE TABLE ProductPrice (
+    product_id INTEGER NOT NULL,
+    supplier_id INTEGER NOT NULL,
+    price FlOAT NOT NULL,
+    PRIMARY KEY product_id
+);
+CREATE TABLE Categrory (
+    categrory_id INTEGER NOT NULL,
+    categrory_name varchar(255) NOT NULL,
+    PRIMARY KEY categrory_id
+);
+CREATE TABLE Supplier (
+    supplier_id INTEGER NOT NULL,
+    address varchar(255) NOT NULL,
+    name varchar(255) NOT NULL,
+    PRIMARY KEY supplier_id
+);
+CREATE TABLE Stock (
+    warehouse_id INTEGER NOT NULL,
+    product_id INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    PRIMARY KEY warehouse_id
+);
+CREATE TABLE Warehouse (
+    warehouse_id INTEGER NOT NULL,
+    address varchar(255) NOT NULL,
+    PRIMARY KEY warehouse_id
+);
+CREATE DeliveryPlan (
+    customer_id INTEGER NOT NULL,
+    delivery_id INTEGER NOT NULL,
+    delivery_price FLOAT NOT NULL,
+    delivery_date TIMESTAMP NOT NULL,
+    PRIMARY KEY delivery_id
+);
+CREATE TABLE Staff (
+    staff_id INTEGER NOT NULL,
+    name varchar(255) NOT NULL,
+    address varchar(255) NOT NULL,
+    salary FLOAT NOT NULL,
+    job_title varchar(255) NOT NULL,
+    PRIMARY KEY staff_id
+);
+CREATE TABLE Customer (
+    customer_id INTEGER NOT NULL,
+    name varchar(255) NOT NULL,
+    balance FLOAT NOT NULL,
+    PRIMARY KEY customer_id
+);
+CREATE TABLE CreditCard (
+    creditcard_id INTEGER NOT NULL,
+    address_id INTEGER NOT NULL,
+    card_id INTEGER NOT NULL,
+    card_number INTEGER NOT NULL,
+    expiry_date DATE NOT NULL,
+    PRIMARY KEY creditcard_id
+);
+CREATE TABLE Address (
+    customer_id INTEGER NOT NULL,
+    address_id INTEGER NOT NULL,
+    street varchar(255) NOT NULL,
+    city varchar(255) NOT NULL,
+    zipcode varchar(255) NOT NULL,
+    type varchar(255) NOT NULL,
+    PRIMARY KEY customer_id
+);
